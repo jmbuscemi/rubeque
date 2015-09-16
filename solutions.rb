@@ -32,3 +32,40 @@ end
 def sum_over_50(arr)
   arr.reject{|n| n < 51}.inject(0){|sum, n| sum + n}
 end
+
+class Character
+  attr_accessor :name, :quote
+end
+
+def caution_case(obj)
+  case obj
+  when obj
+    true
+  else
+    false
+  end
+end
+
+class Stack
+  def initialize(array)
+    @array = array
+  end
+
+  def pop(n = 1)
+    n == 1 ? @array.pop : @array.pop(n).reverse!
+  end
+
+  def push(array)
+    return true if array.each { |n| @array << n }
+  end
+
+  def to_a
+    @array
+  end
+end
+
+class A
+end
+
+class B < A
+end

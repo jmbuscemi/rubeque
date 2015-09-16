@@ -66,19 +66,195 @@ class RubequeTest < Minitest::Test
     assert_equal sum_over_50([300, 22, 1, 55, 42]), 355
   end
 
-  def test_no_way_this_works
+  def test_no_way_this_works_01
     @name = "Dave"
     str = "My mind is going #@name"
 
     assert_equal (str == "My mind is going Dave"), true
   end
 
-  def test_and
+  def test_AND_vs_and
     roses = "blue" && "red"
     violets = "blue" and "red"
 
     assert_equal roses, "red"
     assert_equal violets, "blue"
   end
+
+  def test_array_item_removal
+    assert_equal ([:r, :u, :b, :e, :q, :u, :e] .select{|l| l == :b || l == :q }), [:b, :q]
+  end
+
+  def test_or_equal
+    b = 8
+    c = false
+
+    a ||= "rubeque"
+    b ||= "rubeque"
+    c ||= "rubeque"
+
+    assert_equal a, "rubeque"
+    assert_equal b, 8
+    assert_equal c, "rubeque"
+  end
+
+  def test_no_way_this_works_02
+    str = "Hello" "World"
+
+    assert_equal str, "HelloWorld"
+  end
+
+  def test_home_on_the_range
+    assert_equal (1..100).to_a[11..-6].reduce(:+), 4494
+  end
+
+  def test_subtracting_the_sugar
+    assert_equal 2.+(2), 2 + 2
+    assert_equal 40.+(2), 42
+  end
+
+  def test_brackets_and_searches
+    assert_equal "hello world"["e"], "e"
+    assert_equal "what"["e"],        nil
+    assert_equal "rubeque"["e"],     "e"
+    assert_equal "E"["e"],           nil
+  end
+
+  def test_set_intersection
+    assert_equal ([ 1, 1, 3, 5 ] & [ 1, 2, 3 ]), [ 1, 3 ]
+  end
+
+  def test_alternate_array_notation
+    assert_equal %w(hello world), ["hello", "world"]
+    assert_equal %w{1 2 3 4}, ["1", "2", "3", "4"]
+    assert_equal %w?remembrance of things past?, ["remembrance", "of", "things", "past"]
+  end
+
+  def test_getters_and_setters
+    thorin = Character.new
+    thorin.name = "Thorin Oakenshield"
+    thorin.quote = "Some courage and some wisdom, blended in measure. If more of us valued food
+      and cheer and song above hoarded gold, it would be a merrier world"
+
+    stephen = Character.new
+    stephen.name = "Stephen Dedalus"
+
+    assert_equal thorin.name, "Thorin Oakenshield"
+    assert_equal stephen.name, "Stephen Dedalus"
+  end
+
+  def test_caution_case
+    assert_equal caution_case( 1 ), true
+    assert_equal caution_case( [1, 2] ), true
+    assert_equal caution_case( {1=>2} ), true
+    assert_equal caution_case( (1..2) ), false
+  end
+
+  def test_ternary_operator
+    a = "Miles O'Brien"
+    b = "Barack Obama"
+
+    assert_equal ((a =~ /[ ]\w'/) ? "Irish" : "Not Irish"), "Irish"
+    assert_equal ((b =~ /[ ]\w'/) ? "Irish" : "Not Irish"), "Not Irish"
+  end
+
+  class Queue
+    def initialize(array)
+      @array = array
+    end
+
+    def pop(n = 1)
+      n == 1 ? @array.shift : @array.shift(n)
+    end
+
+    def push(array)
+      return true if array.each { |n| @array << n }
+    end
+
+    def to_a
+      @array
+    end
+  end
+
+  def test_queue_continuum
+    queue = Queue.new([5, 6, 7, 8])
+
+    assert_equal queue.pop, 5
+    assert_equal queue.pop, 6
+    assert_equal queue.push([4, 2]), true
+    assert_equal queue.pop(2), [7, 8]
+    assert_equal queue.to_a, [4, 2]
+  end
+
+  def test_missing_method_03
+    a1 = [1, 2, 3]
+    a2 = [2, 3, 4]
+    b1 = ["durham", "bartow", "zwolle"]
+    b2 = ["nc", "fl", "nl"]
+
+    assert_equal a1.zip(a2), [[1, 2], [2, 3], [3, 4]]
+    assert_equal [10, 11, 12].zip(a1, a2), [[10, 1, 2], [11, 2, 3], [12, 3, 4]]
+    assert_equal b1.zip(b2), [["durham", "nc"], ["bartow", "fl"], ["zwolle", "nl"]]
+  end
+
+  def test_limits_of_probability
+    random_values = (0..1000000).inject(0.0) do |sum, _|
+      sum += rand(14) + rand(14)
+    end
+    assert_equal (random_values/1000000.0).round, 13
+  end
+
+  def test_defined_or_not
+    if false
+      w = :whatever
+    end
+
+    assert_equal defined?(w) != nil, true
+  end
+
+  def test_no_limit
+    assert_equal ["1", "2", "3"], "1,2,3".split(",",-4)
+    assert_equal ["", "", "1", "2", "3"], ",,1,2,3".split(",",-4)
+    assert_equal ["1", "2", "3", "", ""], "1,2,3,,".split(",",-4)
+  end
+
+  def test_baby_got_stacks
+    stack = Stack.new([5, 6, 7, 8])
+
+    assert_equal stack.pop, 8
+    assert_equal stack.pop, 7
+    assert_equal stack.push([4, 2]), true
+    assert_equal stack.pop(3), [2, 4, 6]
+    assert_equal stack.to_a, [5]
+  end
+
+  def test_missing_method_04
+    assert_equal B.ancestors[1], A
+  end
+
+  def test_missing_method_05
+    trilogy = [["Sympathy for Mr Vengeance", "Ryu", "Cha Yeong-mi"], ["Oldboy", "Oh Dae-su", "Kang Hye-jeong"],
+      ["Sympathy for Lady Vengeance", "Lee Geum-ja"]]
+
+    assert_equal trilogy.assoc("Sympathy for Lady Vengeance"), ["Sympathy for Lady Vengeance", "Lee Geum-ja"]
+    assert_equal trilogy.rassoc("Ryu"), ["Sympathy for Mr Vengeance", "Ryu", "Cha Yeong-mi"]
+    assert_equal trilogy.rassoc("Lee Geum-ja"), ["Sympathy for Lady Vengeance", "Lee Geum-ja"]
+  end
+
+  def test_default_encoding
+    assert_equal "".encoding, String.new("").encoding
+    assert_equal "ascii compatible string".encoding, String.new("").encoding
+  end
+
+
+
+
+
+
+
+
+
+
+
 
 end
