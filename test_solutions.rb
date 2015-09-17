@@ -246,8 +246,12 @@ class RubequeTest < Minitest::Test
     assert_equal "ascii compatible string".encoding, String.new("").encoding
   end
 
+  def test_currying
+    exponential = -> x, y { y ** x }
+    squared = exponential.curry[2]
 
-
+    assert_equal squared.(3) == 9, true
+  end
 
 
 
