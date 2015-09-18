@@ -253,7 +253,13 @@ class RubequeTest < Minitest::Test
     assert_equal squared.(3) == 9, true
   end
 
+  def test_shotgun_assignemnt
+    a, b, c = "eat","chunky", "bacon"
 
+    assert_equal a, "eat"
+    assert_equal b, "chunky"
+    assert_equal c, "bacon"
+  end
 
 
 
