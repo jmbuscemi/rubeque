@@ -261,6 +261,12 @@ class RubequeTest < Minitest::Test
     assert_equal c, "bacon"
   end
 
+  def test_bigger_element
+    assert_equal 2, first_even([1, 2, 3, 4, 5])
+    assert_equal 8, first_even([1, 3, 3, 5, 8, 10])
+    assert_equal 2, first_even([2, 2, 4, 6, 8])
+    assert_equal nil, first_even([1, 3])
+  end
 
 
 

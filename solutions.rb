@@ -69,3 +69,7 @@ end
 
 class B < A
 end
+
+def first_even(items)
+  items.find{|n| n.even? }
+end
