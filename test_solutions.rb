@@ -268,6 +268,10 @@ class RubequeTest < Minitest::Test
     assert_equal nil, first_even([1, 3])
   end
 
+  def test_reverse_each_word
+    assert_equal "olleH ,ereht dna woh era ?uoy", reverse_each_word("Hello there, and how are you?")
+  end
+
 
 
 
