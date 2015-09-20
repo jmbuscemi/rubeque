@@ -73,7 +73,3 @@ end
 def first_even(items)
   items.find{|n| n.even? }
 end
-
-def reverse_each_word(sentence)
-  sentence.split.map{|w| w.reverse}.join(" ")
-end

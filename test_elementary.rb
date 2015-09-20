@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 
-require './solutions'
+require './elementary'
 
 class RubequeTest < Minitest::Test
   def test_truth
@@ -267,14 +267,5 @@ class RubequeTest < Minitest::Test
     assert_equal 2, first_even([2, 2, 4, 6, 8])
     assert_equal nil, first_even([1, 3])
   end
-
-  def test_reverse_each_word
-    assert_equal "olleH ,ereht dna woh era ?uoy", reverse_each_word("Hello there, and how are you?")
-  end
-
-
-
-
-
 
 end
