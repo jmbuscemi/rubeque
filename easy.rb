@@ -17,3 +17,12 @@ class Bar < Foo
     "bar"
   end
 end
+
+def fibo_finder(n)
+  return n if (n < 2)
+  fibo_finder(n-1) + fibo_finder(n-2)
+end
+
+def key_for_min_value(hash)
+  hash.key(hash.values.min)
+end
