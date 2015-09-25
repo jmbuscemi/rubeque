@@ -5,6 +5,7 @@ def maximum(arr)
   max
 end
 
+#Fizzbuzz
 def fizzbuzz(x)
   if x % 3 == 0 && x % 5 ==0
     "FizzBuzz"
@@ -15,10 +16,12 @@ def fizzbuzz(x)
   end
 end
 
+#Blackjack
 def twenty_one?(*args)
   args.reduce(:+) == 21
 end
 
+#Temperature Robot
 def temperature_bot(temp)
   # temperature bot is American but takes Celsius temperatures
   case temp
@@ -29,14 +32,17 @@ def temperature_bot(temp)
   end
 end
 
+#Injected and Rejected
 def sum_over_50(arr)
   arr.reject{|n| n < 51}.inject(0){|sum, n| sum + n}
 end
 
+#Getters and Setters
 class Character
   attr_accessor :name, :quote
 end
 
+#Caution Case
 def caution_case(obj)
   case obj
   when obj
@@ -46,6 +52,7 @@ def caution_case(obj)
   end
 end
 
+#Baby got Stacks
 class Stack
   def initialize(array)
     @array = array
@@ -64,12 +71,14 @@ class Stack
   end
 end
 
+#Missing Method 4
 class A
 end
 
 class B < A
 end
 
+#Bigger Element
 def first_even(items)
   items.find{|n| n.even? }
 end
