@@ -30,3 +30,34 @@ end
 def key_for_min_value(hash)
   hash.key(hash.values.min)
 end
+
+#Including Modules
+module A
+  def name
+    "a"
+  end
+end
+
+module B
+  def name
+    "b"
+  end
+end
+
+class C
+  include A
+  include B
+end
+
+class D
+  include B, A
+end
+
+#Constant Rule
+CONST = rand
+class Foo
+  CONST = rand(100)
+  def foo
+    return ::CONST
+  end
+end

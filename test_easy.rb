@@ -39,7 +39,23 @@ class RubequeTest < Minitest::Test
     assert_equal nil, key_for_min_value({})
   end
 
+  def test_including_modules
+    assert_equal C.new.name, "b"
+    assert_equal D.new.name, "b"
+  end
 
+  def test_picking_lottery_numbers
+    superset = (1..500).to_a
+    week1 = superset.sample(5)
+    week2 = superset.sample(5)
+
+    assert_equal (week1.length == 5 && week2.length == 5), true
+    assert_equal (week1.sort != week2.sort), true
+  end
+
+  def test_constant_rule
+    assert_equal Foo.new.foo, CONST
+  end
 
 
 end
