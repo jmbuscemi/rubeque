@@ -61,3 +61,43 @@ class Foo
     return ::CONST
   end
 end
+
+#Method Acting
+def dogs
+  __method__
+end
+
+def cats
+  __method__
+end
+
+def chunky_bacon
+  __method__
+end
+
+#Area of Expertise
+class Point
+  attr_accessor :x, :y
+  def initialize(x, y)
+    self.x, self.y = x, y
+  end
+end
+
+class Rectangle
+  attr_accessor :upper_left, :lower_right
+
+  def initialize(upper_left, lower_right)
+    self.upper_left, self.lower_right = upper_left, lower_right
+  end
+
+  def area
+    (upper_left.x - lower_right.x)*(upper_left.y - lower_right.y)
+  end
+end
+
+#Each with Object
+def even_sum(arr)
+  arr.each_with_object([]) do |w, a|
+    a << w.reverse if w && w.length % 2 == 0
+  end
+end

@@ -57,5 +57,39 @@ class RubequeTest < Minitest::Test
     assert_equal Foo.new.foo, CONST
   end
 
+  def test_intro_to_regex
+    assert_equal "john@mail.com to jane@mail.com".scan(/\w+@\w+\.\w{3}/), ["john@mail.com", "jane@mail.com"]
+    assert_equal "why@ @chunkybacon.com why@chunkybacon.com".scan(/\w+@\w+\.\w{3}/), ["why@chunkybacon.com"]
+    assert_equal "why @ @ why@chunkybacon".scan(/\w+@\w+\.\w{3}/), []
+  end
+
+  def test_method_acting
+    assert_equal dogs, :dogs
+    assert_equal cats, :cats
+    assert_equal chunky_bacon, :chunky_bacon
+  end
+
+  def test_area_of_expertise
+    p1 = Point.new(0, 0)
+    p2 = Point.new(3, 4)
+    assert_equal Rectangle.new(p1, p2).area, 12
+    assert_equal Rectangle.new(p2, p1).area, 12
+    assert_equal Rectangle.new(Point.new(13, 5), p2).area,  10
+  end
+
+  def test_each_with_object
+    assert_equal even_sum(["cat", "dog", "bird", "fish"]), ["drib", "hsif"]
+    assert_equal even_sum(["why", "chunky", nil, "lucky", "stiff"]), ["yknuhc"]
+    assert_equal even_sum(["rewsna", "hitch hiker", "si", "guide", "galaxies ", "24"]), ["answer", "is", "42"]
+  end
+
+  def test_lambda_lambda_lambda
+    even_check = lambda{|*nums| nums.all? {|x| x.even?} }
+
+    assert_equal [[2, 4], [1, 2], [8, 12]].select{|arr| even_check.call(*arr)}, [[2, 4], [8, 12]]
+    assert_equal even_check.call(42), true
+    assert_equal [[2, 4], [2, 1], [8, 11]].select{|arr| even_check.call(*arr)}, [[2, 4]]
+  end
+
 
 end
