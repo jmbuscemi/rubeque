@@ -101,3 +101,8 @@ def even_sum(arr)
     a << w.reverse if w && w.length % 2 == 0
   end
 end
+
+#Separating Numbers wit Commas
+def separate_with_comma(n)
+  n.to_s.reverse.chars.each_slice(3).map{|s| s.join}.join(",").reverse
+end
