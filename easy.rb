@@ -106,3 +106,10 @@ end
 def separate_with_comma(n)
   n.to_s.reverse.chars.each_slice(3).map{|s| s.join}.join(",").reverse
 end
+
+#Random Boolean
+def random_boolean
+  random = rand(0..1)
+  return true if random == 1
+  return false
+end

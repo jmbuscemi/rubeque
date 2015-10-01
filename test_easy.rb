@@ -101,5 +101,17 @@ class RubequeTest < Minitest::Test
     assert_equal "1,000,000", separate_with_comma(1000000)
   end
 
+  def test_random_boolean
+    array = []
+
+    100.times do
+      if random_boolean
+        array << :dummy
+      end
+    end
+
+    assert_equal (1..100) === array.size, true
+    assert_equal array.size != 100, true
+  end
 
 end
