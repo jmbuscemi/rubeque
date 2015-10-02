@@ -109,7 +109,8 @@ end
 
 #Random Boolean
 def random_boolean
-  random = rand(0..1)
-  return true if random == 1
-  return false
+  # random = rand(0..1)
+  # return true if random == 1
+  # return false
+  [true, false].sample
 end
