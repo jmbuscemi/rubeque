@@ -146,6 +146,6 @@ end
 #Related keys of Hash
 class Hash
   def keys_of(*args)
-    ___
+    self.select{|key, value| args.include?(value)}.keys
   end
 end
