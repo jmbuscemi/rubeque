@@ -114,4 +114,18 @@ class RubequeTest < Minitest::Test
     assert_equal array.size != 100, true
   end
 
+  def test_fixing_bad_code
+    person = Person.new("kurt vonnegut", 89, "caucasian")
+
+    assert_equal person.name, "Kurt Vonnegut"
+    assert_equal person.race, "Caucasian"
+    assert_equal person.age, 89
+  end
+
+  def test_keys_of_hash
+    assert_equal [:a], {a: 1, b: 2, c: 3}.keys_of(1)
+    assert_equal [:a, :d], {a: 1, b: 2, c: 3, d: 1}.keys_of(1)
+    assert_equal [:a, :b, :d], {a: 1, b: 2, c: 3, d: 1}.keys_of(1, 2)
+  end
+
 end

@@ -114,3 +114,38 @@ def random_boolean
   # return false
   [true, false].sample
 end
+
+#Fixing Bad Code the Wrong Way
+class Person
+  def initialize(name, age, incoming_race)
+    @name = name
+    @age = age
+    self.race = incoming_race
+  end
+
+  def nam
+    @name.split.map(&:capitalize).join(" ")
+  end
+
+  def agE
+    @age
+  end
+
+  def method_missing(m, *args)
+    case m
+      when :name then nam
+      when :race then @race
+      when :age then agE
+      when :race= then @race = args[0].capitalize
+    else
+      super
+    end
+  end
+end
+
+#Related keys of Hash
+class Hash
+  def keys_of(*args)
+    ___
+  end
+end
