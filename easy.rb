@@ -149,3 +149,14 @@ class Hash
     self.select{|key, value| args.include?(value)}.keys
   end
 end
+
+#Defusing a Bomb
+class NilClass
+  def length
+    nil
+  end
+
+  def reverse
+    nil
+  end
+end

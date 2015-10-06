@@ -128,4 +128,9 @@ class RubequeTest < Minitest::Test
     assert_equal [:a, :b, :d], {a: 1, b: 2, c: 3, d: 1}.keys_of(1, 2)
   end
 
+  def test_defusing
+    assert_equal nil.length == 5, false
+    assert_equal nil.reverse == "rubeque", false
+  end
+
 end
