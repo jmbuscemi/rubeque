@@ -151,12 +151,6 @@ class Hash
 end
 
 #Defusing a Bomb
-class NilClass
-  def length
-    nil
-  end
-
-  def reverse
-    nil
-  end
+def nil.method_missing(*args)
+  nil
 end
