@@ -133,4 +133,11 @@ class RubequeTest < Minitest::Test
     assert_equal nil.reverse == "rubeque", false
   end
 
+  def test_a_man_a_plan
+    assert_equal longest_palindrome("xyzzy"), "yzzy"
+    assert_equal longest_palindrome("afbbbfjdjklgdfdhfdkjfffhhfffjkdfhdhkyejejfjkd"), "dhfdkjfffhhfffjkdfhd"
+    assert_equal longest_palindrome("bartarcarracecarbartar"), "racecar"
+    assert_equal longest_palindrome("3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982"), "46264"
+  end
+
 end

@@ -154,3 +154,17 @@ end
 def nil.method_missing(*args)
   nil
 end
+
+#A Man, A Plan, A Canal, Panama
+def longest_palindrome(string)
+  result = ""
+  0.upto string.length do |outer|
+    string.length.downto outer+1 do |inner|
+      forward = string.slice(outer..inner)
+      if forward.length > result.length && forward.eql?(forward.reverse)
+        result = forward
+      end
+    end
+  end
+  result
+end
