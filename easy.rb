@@ -168,3 +168,6 @@ def longest_palindrome(string)
   end
   result
 end
+
+#Architecting a Solution
+Architect = Struct.new(:name, :works)

@@ -140,4 +140,14 @@ class RubequeTest < Minitest::Test
     assert_equal longest_palindrome("3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982"), "46264"
   end
 
+  def test_architecting_a_solution
+    flr = Architect.new("frank loyd wright")
+    imp = Architect.new("I. M. Pei", ["new college dorms", "jfk library"])
+
+    flr.works = ["Guggenheim", "fallingwater"]
+
+    assert_equal flr.name, "frank loyd wright"
+    assert_equal imp.works, ["new college dorms", "jfk library"]
+  end
+
 end
