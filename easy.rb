@@ -174,5 +174,5 @@ Architect = Struct.new(:name, :works)
 
 #Counting Elements in Array
 def count(array)
-  array.each_with_object(Hash.new(0)) { |item, value| value[item] += 1 }
+  array.each_with_object(Hash.new(0)) { |item, value| value[item ] += 1 }
 end
