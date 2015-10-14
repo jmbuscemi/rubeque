@@ -150,4 +150,9 @@ class RubequeTest < Minitest::Test
     assert_equal imp.works, ["new college dorms", "jfk library"]
   end
 
+  def test_counting_elements_in_array
+    test = ['cat', 'dog', 'fish', 'fish']
+    assert_equal ({ 'cat' => 1, 'dog' => 1, 'fish' => 2 }), count(test)
+  end
+
 end
