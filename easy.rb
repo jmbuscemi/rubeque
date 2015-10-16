@@ -176,3 +176,14 @@ Architect = Struct.new(:name, :works)
 def count(array)
   array.each_with_object(Hash.new(0)) { |item, value| value[item ] += 1 }
 end
+
+#Implement Array Interleave
+class Array
+  def interleave(*args)
+    if self.empty?
+      args.flatten
+    else
+      self.zip(args.flatten).flatten.compact
+    end
+  end
+end
