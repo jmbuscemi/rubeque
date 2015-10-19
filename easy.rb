@@ -187,3 +187,11 @@ class Array
     end
   end
 end
+
+#The Gray Area
+#tests don't run with this in code...for obvious reasons
+# class TrueClass
+#   def == x
+#     return !x
+#   end
+# end
