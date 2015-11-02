@@ -198,5 +198,6 @@ end
 
 #Join URL Params
 def join_params(link, url_parameters)
-  ___
+  parameters = url_parameters.map{|k,v| "#{k}=#{v}"}.join('&')
+  "#{link}?"+"#{parameters}"
 end
