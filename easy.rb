@@ -195,3 +195,8 @@ end
 #     return !x
 #   end
 # end
+
+#Join URL Params
+def join_params(link, url_parameters)
+  ___
+end
