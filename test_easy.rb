@@ -175,4 +175,9 @@ class RubequeTest < Minitest::Test
     assert_equal 'http://www.foobar.com?first_param=123&second_param=456&third_param=678', join_params(url, url_params)
   end
 
+  def test_unidentified_X_object
+    assert_equal "X" * ( 2<=>2 ), ""
+    assert_equal "X" * ( 2<=>0 ), "X"
+  end
+
 end
