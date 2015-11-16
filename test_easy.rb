@@ -180,4 +180,15 @@ class RubequeTest < Minitest::Test
     assert_equal "X" * ( 2<=>0 ), "X"
   end
 
+  def test_simple_string_substitution
+    subject = "?? == ??"
+
+    assert_equal subject.simple_sub("==", "<="), "?? <= ??"
+    assert_equal subject.simple_sub("abc", "def"), "?? == ??"
+    assert_equal subject.simple_sub("??", "fun??"), "fun?? == fun??"
+
+    naruse_answer = "Date.parse(date.sub(/(\d+)[-\/](\d\d).(\d{4})/,'\\3-\\1-\\2')).strftime('%b %d, %Y')"
+    assert_equal subject.simple_sub("??", naruse_answer), "#{naruse_answer} == #{naruse_answer}"
+  end
+
 end

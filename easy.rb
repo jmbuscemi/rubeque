@@ -201,3 +201,10 @@ def join_params(link, url_parameters)
   parameters = url_parameters.map{|k,v| "#{k}=#{v}"}.join('&')
   "#{link}?"+"#{parameters}"
 end
+
+#Simple String Substitution
+class String
+  def simple_sub(pattern, replace)
+    gsub(pattern, pattern => replace)
+  end
+end
