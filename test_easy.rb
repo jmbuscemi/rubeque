@@ -200,4 +200,11 @@ class RubequeTest < Minitest::Test
     assert_equal [12354, 12356, 12358, 12360, 12362].pack('U*'), "あいうえお"
   end
 
+  def test_easy_select_map
+    assert_equal ["1", 2, "3", 4, "5"].grep(/[1-5]/){ |e| e.succ }, ["2", "4", "6"]
+    assert_equal [0, 1, 3, 5, 6].grep(1..5, &:succ), [2, 4, 6]
+    assert_equal ["1", "2", "3", "4", "5"].grep( -> n { n.to_i.odd? } ) { |e| e.succ }, ["2", "4", "6"]
+    assert_equal [1, 2, 3, 4, 5].grep( -> n { n.to_i.odd? }, &:succ), [2, 4, 6]
+  end
+
 end
