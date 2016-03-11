@@ -207,4 +207,11 @@ class RubequeTest < Minitest::Test
     assert_equal [1, 2, 3, 4, 5].grep( -> n { n.to_i.odd? }, &:succ), [2, 4, 6]
   end
 
+  def test_an_unconventional_join
+    $,='_'
+    assert_equal "a_b_c", ["a", "b", "c"].join
+    assert_equal "123", [1, 2, 3].join('')
+    $,=''
+  end
+
 end

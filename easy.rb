@@ -1,9 +1,9 @@
-#Reverse Each Word
+# Reverse Each Word
 def reverse_each_word(sentence)
   sentence.split.map{|w| w.reverse}.join(" ")
 end
 
-#Class Test
+# Class Test
 class Foo
   def name
     "foo"
@@ -20,18 +20,18 @@ class Bar < Foo
   end
 end
 
-#Your Favorite and Mine, Fibonacci!
+# Your Favorite and Mine, Fibonacci!
 def fibo_finder(n)
   return n if (n < 2)
   fibo_finder(n-1) + fibo_finder(n-2)
 end
 
-#The Little Hash Key that Could
+# The Little Hash Key that Could
 def key_for_min_value(hash)
   hash.key(hash.values.min)
 end
 
-#Including Modules
+# Including Modules
 module A
   def name
     "a"
@@ -53,7 +53,7 @@ class D
   include B, A
 end
 
-#Constant Rule
+# Constant Rule
 CONST = rand
 class Foo
   CONST = rand(100)
@@ -62,7 +62,7 @@ class Foo
   end
 end
 
-#Method Acting
+# Method Acting
 def dogs
   __method__
 end
@@ -75,7 +75,7 @@ def chunky_bacon
   __method__
 end
 
-#Area of Expertise
+# Area of Expertise
 class Point
   attr_accessor :x, :y
   def initialize(x, y)
@@ -95,27 +95,27 @@ class Rectangle
   end
 end
 
-#Each with Object
+# Each with Object
 def even_sum(arr)
   arr.each_with_object([]) do |w, a|
     a << w.reverse if w && w.length % 2 == 0
   end
 end
 
-#Separating Numbers wit Commas
+# Separating Numbers wit Commas
 def separate_with_comma(n)
   n.to_s.reverse.chars.each_slice(3).map{|s| s.join}.join(",").reverse
 end
 
-#Random Boolean
+# Random Boolean
 def random_boolean
-  # random = rand(0..1)
-  # return true if random == 1
-  # return false
+  #  random = rand(0..1)
+  #  return true if random == 1
+  #  return false
   [true, false].sample
 end
 
-#Fixing Bad Code the Wrong Way
+# Fixing Bad Code the Wrong Way
 class Person
   def initialize(name, age, incoming_race)
     @name = name
@@ -143,19 +143,19 @@ class Person
   end
 end
 
-#Related keys of Hash
+# Related keys of Hash
 class Hash
   def keys_of(*args)
     self.select{|key, value| args.include?(value)}.keys
   end
 end
 
-#Defusing a Bomb
+# Defusing a Bomb
 def nil.method_missing(*args)
   nil
 end
 
-#A Man, A Plan, A Canal, Panama
+# A Man, A Plan, A Canal, Panama
 def longest_palindrome(string)
   result = ""
   0.upto string.length do |outer|
@@ -169,15 +169,15 @@ def longest_palindrome(string)
   result
 end
 
-#Architecting a Solution
+# Architecting a Solution
 Architect = Struct.new(:name, :works)
 
-#Counting Elements in Array
+# Counting Elements in Array
 def count(array)
   array.each_with_object(Hash.new(0)) { |item, value| value[item ] += 1 }
 end
 
-#Implement Array Interleave
+# Implement Array Interleave
 class Array
   def interleave(*args)
     if self.empty?
@@ -188,21 +188,21 @@ class Array
   end
 end
 
-#The Gray Area
-#tests don't run with this in code...for obvious reasons
-# class TrueClass
-#   def == x
-#     return !x
-#   end
-# end
+# The Gray Area
+# tests don't run with this in code...for obvious reasons
+#  class TrueClass
+#    def == x
+#      return !x
+#    end
+#  end
 
-#Join URL Params
+# Join URL Params
 def join_params(link, url_parameters)
   parameters = url_parameters.map{|k,v| "#{k}=#{v}"}.join('&')
   "#{link}?"+"#{parameters}"
 end
 
-#Simple String Substitution
+# Simple String Substitution
 class String
   def simple_sub(pattern, replace)
     gsub(pattern, pattern => replace)
